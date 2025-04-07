@@ -41,7 +41,7 @@ void universal_case() {
             "(7) Исключение элемента из конца списка.\n"
             "(8) Уничтожение списка с освобождением памяти.\n"
             "ВНИМАНИЕ! При выходе из этого раздела список и все его данные удаляются\n";
-
+    int data, key;
     while (get_int(&case_number, 0 ,8) != 0 && case_number != 0) {
         switch (case_number) {
             case 1:
@@ -59,11 +59,15 @@ void universal_case() {
                 break;
             case 4:
                 cout << "Вставка в начало\n";
-                insert_begin_node(&head, 42); // заменишь на ввод
+                cin >> data;
+                cin >> key;
+                insert_begin_node(&head, data, key);
                 break;
             case 5:
                 cout << "Вставка в конец\n";
-                insert_end_node(&head, 99); // заменишь на ввод
+                cin >> data;
+                cin >> key;
+                insert_end_node(&head, data, key);
                 break;
             case 6:
                 cout << "Удаление из начала\n";
