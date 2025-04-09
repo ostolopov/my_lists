@@ -1,37 +1,32 @@
 #include "utils.h"
-#include "my_lists.h"
 
 int get_int(int *number, int min, int max) {
     while (true) {
         if (!(cin >> *number)) {
             if (cin.eof()) {
-                cout << "\nРабота программы прекращена.\n";
+                cout << "\nProgram terminated.\n";
                 return 0;
             }
-            cout << "Число неверно. Попробуйте еще раз!\n";
+            cout << "Invalid number. Please try again!\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
         }
         if (*number < min || *number > max) {
-            cout << "Число вышло за разрешенный диапазон. Попробуйте еще раз!\n";
+            cout << "The number is out of the allowed range. Please try again!\n";
             continue;
         }
         break;
     }
     return 1;
 }
+
+template <typename T>
 void universal_case() {
     int case_number;
+    T* head = nullptr;
     int capacity;
-    undir_lin_no_head *head = nullptr;
-    // undir_lin_with_head
-    // sym_lin_no_head *head = nullptr;
-    // sym_lin_with_head
-    // unidir_cyc_no_head *head = nullptr;
-    // unidir_cyc_with_head
-    // sym_cyc_no_head *head = nullptr;
-    // sym_cyc_with_head
+    int data, key;
     cout << "(1) Создание пустого списка.\n"
             "(2) Подсчет количества элементов списка.\n"
             "(3) Вывод на экран содержимого списка.\n"
@@ -41,12 +36,11 @@ void universal_case() {
             "(7) Исключение элемента из конца списка.\n"
             "(8) Уничтожение списка с освобождением памяти.\n"
             "ВНИМАНИЕ! При выходе из этого раздела список и все его данные удаляются\n";
-    int data, key;
     while (get_int(&case_number, 0 ,8) != 0 && case_number != 0) {
         switch (case_number) {
             case 1:
                 cout << "Создание списка\n";
-                head = create_undir_lin_no_head();
+                head = create_list<T>();
                 break;
             case 2:
                 cout << "Подсчет элементов\n";
@@ -98,3 +92,13 @@ void universal_case() {
     }
     delete_all_node(&head);
 }
+
+// Явная инстанциация шаблона для всех нужных типов
+template void universal_case<sym_cyc_no_head>();
+template void universal_case<sym_lin_no_head>();
+template void universal_case<sym_cyc_with_head>();
+template void universal_case<sym_lin_with_head>();
+template void universal_case<undir_lin_no_head>();
+template void universal_case<unidir_cyc_no_head>();
+template void universal_case<undir_lin_with_head>();
+template void universal_case<unidir_cyc_with_head>();

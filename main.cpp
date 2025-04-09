@@ -1,5 +1,6 @@
 #include <iostream>
 #include "utils.h"
+#include "my_lists.h"
 
 using namespace std;
 
@@ -16,40 +17,32 @@ int main() {
     while (get_int(&case_number, 0 ,8) != 0  && case_number != 0) {
         switch (case_number) {
             case 1:
-                cout << "case 1";
-                universal_case();
+                universal_case<undir_lin_no_head> ();
                 break;
             case 2:
-                cout << "case 2";
-                universal_case();
+                universal_case<undir_lin_with_head> ();
                 break;
             case 3:
-                cout << "case 3";
-                universal_case();
+                universal_case<sym_lin_no_head> ();
                 break;
             case 4:
-                cout << "case 4";
-                universal_case();
+                universal_case<sym_lin_with_head> ();
                 break;
             case 5:
-                cout << "case 5";
-                universal_case();
+                universal_case<unidir_cyc_no_head> ();
                 break;
             case 6:
-                cout << "case 6";
-                universal_case();
+                universal_case<unidir_cyc_with_head> ();
                 break;
             case 7:
-                cout << "case 7";
-                universal_case();
+                universal_case<sym_cyc_no_head> ();
                 break;
             case 8:
-                cout << "case 8";
-                universal_case();
+                universal_case<sym_cyc_with_head> ();
                 break;
             default:
                 cout << "Число вышло за разрешенный диапазон. Попробуйте еще раз!\n";
-                break;
+            break;
         }
         cout << "(1) Работа с однонаправленным линейным списком без головного элемента.\n"
             "(2) Работа с однонаправленным линейным списком с головным элементом.\n"
