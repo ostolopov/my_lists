@@ -93,7 +93,7 @@ void universal_case() {
     delete_all_node(&head);
 }
 
-// Явная инстанциация шаблона для всех нужных типов
+
 template void universal_case<sym_cyc_no_head>();
 template void universal_case<sym_lin_no_head>();
 template void universal_case<sym_cyc_with_head>();
