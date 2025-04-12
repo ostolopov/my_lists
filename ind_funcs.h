@@ -127,6 +127,8 @@ template<>
 void include_instead_the_key <sym_cyc_with_head> (sym_cyc_with_head **head, int key);
 
 // Исключить элемент перед i-ым по номеру элементом
+template <typename T>
+void exclude_before_the_ith (T **head, int i);
 
 // Исключить элемент перед элементом с заданным ключом.
 
