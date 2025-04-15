@@ -2,7 +2,6 @@
 #define MY_LISTS_H
 
 #include <iostream>
-using namespace std;
 
 // 1. [Data1] -> [Data2] -> [Data3] -> nullptr
 struct undir_lin_no_head {

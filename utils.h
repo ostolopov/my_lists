@@ -4,8 +4,6 @@
 #include <iostream>
 #include "my_lists.h"
 #include "ind_funcs.h"
-using namespace std;
-
 
 int get_int(int *number, int min, int max);
 

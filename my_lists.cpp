@@ -20,10 +20,10 @@ template <>
 void print_node<undir_lin_no_head> (undir_lin_no_head *head) {
     undir_lin_no_head *current = head;
     while (current != nullptr) {
-        cout << "k:" << current->key << " d:" << current->data << " -> ";
+        std::cout << "k:" << current->key << " d:" << current->data << " -> ";
         current = current->next;
     }
-    cout << "NULL" << endl;
+    std::cout << "NULL" << std::endl;
 }
 
 template<>
@@ -111,12 +111,12 @@ int count_node<undir_lin_with_head>(undir_lin_with_head *head) {
 template <>
 void print_node<undir_lin_with_head>(undir_lin_with_head *head) {
     undir_lin_with_head *current = head->next;
-    cout << "HEAD -> ";
+    std::cout << "HEAD -> ";
     while (current) {
-        cout << "k:" << current->key << " d:" << current->data << " -> ";
+        std::cout << "k:" << current->key << " d:" << current->data << " -> ";
         current = current->next;
     }
-    cout << "NULL" << endl;
+    std::cout << "NULL" << std::endl;
 }
 
 template <>
@@ -197,12 +197,12 @@ int count_node<sym_lin_no_head> (sym_lin_no_head *head) {
 template <>
 void print_node<sym_lin_no_head> (sym_lin_no_head *head) {
     sym_lin_no_head *current = head;
-    cout << "NULL <-> ";
+    std::cout << "NULL <-> ";
     while (current != nullptr) {
-        cout << "k:" << current->key << " d:" << current->data << " <-> ";
+        std::cout << "k:" << current->key << " d:" << current->data << " <-> ";
         current = current->next;
     }
-    cout << "NULL" << endl;
+    std::cout << "NULL" << std::endl;
 }
 
 template<>
@@ -297,12 +297,12 @@ int count_node<sym_lin_with_head>(sym_lin_with_head *head) {
 template <>
 void print_node<sym_lin_with_head>(sym_lin_with_head *head) {
     sym_lin_with_head *current = head->next;
-    cout << "HEAD <-> ";
+    std::cout << "HEAD <-> ";
     while (current) {
-        cout << "k:" << current->key << " d:" << current->data << " <-> ";
+        std::cout << "k:" << current->key << " d:" << current->data << " <-> ";
         current = current->next;
     }
-    cout << "HEAD" << endl;
+    std::cout << "HEAD" << std::endl;
 }
 
 template <>
@@ -385,17 +385,17 @@ int count_node<unidir_cyc_no_head>(unidir_cyc_no_head *head) {
 template <>
 void print_node<unidir_cyc_no_head>(unidir_cyc_no_head *head) {
     if (!head) {
-        cout << "List is empty" << endl;
+        std::cout << "List is empty" << std::endl;
         return;
     }
     unidir_cyc_no_head *current = head;
-    cout << "START -> ";
+    std::cout << "START -> ";
     while (true) {
-        cout << "k:" << current->key << " d:" << current->data << " -> ";
+        std::cout << "k:" << current->key << " d:" << current->data << " -> ";
         current = current->next;
         if (current == head) break;
     }
-    cout << "HEAD" << endl;
+    std::cout << "HEAD" << std::endl;
 }
 
 template <>
@@ -504,16 +504,16 @@ int count_node<unidir_cyc_with_head> (unidir_cyc_with_head *head) {
 template <>
 void print_node<unidir_cyc_with_head> (unidir_cyc_with_head *head) {
     if (head == nullptr || head->next == head) {
-        cout << "HEAD -> HEAD" << endl;
+        std::cout << "HEAD -> HEAD" << std::endl;
         return;
     }
-    cout << "HEAD -> ";
+    std::cout << "HEAD -> ";
     unidir_cyc_with_head *current = head->next;
     while (current != head) {
-        cout << "k:" << current->key << " d:" << current->data << " -> ";
+        std::cout << "k:" << current->key << " d:" << current->data << " -> ";
         current = current->next;
     }
-    cout << "HEAD" << endl;
+    std::cout << "HEAD" << std::endl;
 }
 
 template<>
@@ -606,17 +606,17 @@ int count_node<sym_cyc_no_head>(sym_cyc_no_head *head) {
 template <>
 void print_node<sym_cyc_no_head>(sym_cyc_no_head *head) {
     if (!head) {
-        cout << "HEAD <-> HEAD" << endl;
+        std::cout << "HEAD <-> HEAD" << std::endl;
         return;
     }
     sym_cyc_no_head *current = head;
-    cout << "HEAD <-> ";
+    std::cout << "HEAD <-> ";
     while (true) {
-        cout << "k:" << current->key << " d:" << current->data << " <-> ";
+        std::cout << "k:" << current->key << " d:" << current->data << " <-> ";
         current = current->next;
         if (current == head) break;
     }
-    cout << "HEAD" << endl;
+    std::cout << "HEAD" << std::endl;
 }
 
 template <>
@@ -720,16 +720,16 @@ int count_node<sym_cyc_with_head>(sym_cyc_with_head *head) {
 template <>
 void print_node<sym_cyc_with_head>(sym_cyc_with_head *head) {
     if (!head || head->next == head) {
-        cout << "HEAD <-> HEAD" << endl;
+        std::cout << "HEAD <-> HEAD" << std::endl;
         return;
     }
-    cout << "HEAD <-> ";
+    std::cout << "HEAD <-> ";
     sym_cyc_with_head *current = head->next;
     while (current != head) {
-        cout << "k:" << current->key << " d:" << current->data << " <-> ";
+        std::cout << "k:" << current->key << " d:" << current->data << " <-> ";
         current = current->next;
     }
-    cout << "HEAD" << endl;
+    std::cout << "HEAD" << std::endl;
 }
 
 template <>

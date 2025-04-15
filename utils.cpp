@@ -2,18 +2,18 @@
 
 int get_int(int *number, int min, int max) {
     while (true) {
-        if (!(cin >> *number)) {
-            if (cin.eof()) {
-                cout << "\nProgram terminated.\n";
+        if (!(std::cin >> *number)) {
+            if (std::cin.eof()) {
+                std::cout << "\nProgram terminated.\n";
                 return 0;
             }
-            cout << "Invalid number. Please try again!\n";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            std::cout << "Invalid number. Please try again!\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
         }
         if (*number < min || *number > max) {
-            cout << "The number is out of the allowed range. Please try again!\n";
+            std::cout << "The number is out of the allowed range. Please try again!\n";
             continue;
         }
         break;
@@ -26,8 +26,8 @@ void universal_case() {
     int case_number;
     T* head = nullptr;
     int capacity;
-    int data, key, i;
-    cout << "(1) Создание пустого списка.\n"
+    int data, key, i, j, key2;
+    std::cout << "(1) Создание пустого списка.\n"
             "(2) Подсчет количества элементов списка.\n"
             "(3) Вывод на экран содержимого списка.\n"
             "(4) Вставка элемента в начало списка.\n"
@@ -36,80 +36,79 @@ void universal_case() {
             "(7) Исключение элемента из конца списка.\n"
             "(8) Уничтожение списка с освобождением памяти.\n"
             "(9) Включить новый элемент после i-го по номеру элемента.\n"
-            "(10) Включить новый элемент после элемента с заданным ключом.\n"
+            "(10) Включить новый элемент после элемента с заданным ключом\n"
             "(11) Включить новый элемент вместо элемента с соответствующим ключом.\n"
             "ВНИМАНИЕ! При выходе из этого раздела список и все его данные удаляются\n";
     while (get_int(&case_number, 0 ,11) != 0 && case_number != 0) {
         switch (case_number) {
             case 1:
-                cout << "Создание списка\n";
+                std::cout << "Создание списка\n";
                 head = create_list<T>();
                 break;
             case 2:
-                cout << "Подсчет элементов\n";
+                std::cout << "Подсчет элементов\n";
                 capacity = count_node(head);
-                cout << "Количество элементов: " << capacity << "\n";
+                std::cout << "Количество элементов: " << capacity << "\n";
                 break;
             case 3:
-                cout << "Вывод содержимого\n";
+                std::cout << "Вывод содержимого\n";
                 print_node(head);
                 break;
             case 4:
-                cout << "Вставка в начало\n";
-                cin >> data;
-                cin >> key;
+                std::cout << "Вставка в начало\n";
+                std::cin >> data;
+                std::cin >> key;
                 insert_begin_node(&head, data, key);
                 break;
             case 5:
-                cout << "Вставка в конец\n";
-                cin >> data;
-                cin >> key;
+                std::cout << "Вставка в конец\n";
+                std::cin >> data;
+                std::cin >> key;
                 insert_end_node(&head, data, key);
                 break;
             case 6:
-                cout << "Удаление из начала\n";
+                std::cout << "Удаление из начала\n";
                 delete_begin_node(&head);
                 break;
             case 7:
-                cout << "Удаление из конца\n";
+                std::cout << "Удаление из конца\n";
                 delete_end_node(&head);
                 break;
             case 8:
-                cout << "Удаление всего списка\n";
+                std::cout << "Удаление всего списка\n";
                 delete_all_node(&head);
                 break;
             case 9:
-                cout << "Включить новый элемент после i-го по номеру элемента.\n";
-                cin >> i;
-                include_after_the_ith(&head, i);
+                std::cout << "Введите i:\n";
+                std::cin >> i;
+                include_after_the_ith (&head,  i);
                 break;
             case 10:
-                cout << "Включить новый элемент после элемента с заданным ключом.\n";
-                cin >> key;
-                include_after_the_key(&head, key);
+                std::cout << "Введите key:\n";
+                std::cin >> key;
+                include_after_the_key (&head, key);
                 break;
             case 11:
-                cout << "Включить новый элемент вместо элемента с соответствующим ключом.\n";
-                cin >> key;
-                include_instead_the_key(&head, key);
+                std::cout << "nВведите key:\n";
+                std::cin >> key;
+                include_instead_the_key (&head, key);
                 break;
             default:
-                cout << "Число вне диапазона\n";
+                std::cout << "Число вне диапазона\n";
                 break;
         }
-
-        cout << "(1) Создание пустого списка.\n"
-           "(2) Подсчет количества элементов списка.\n"
-           "(3) Вывод на экран содержимого списка.\n"
-           "(4) Вставка элемента в начало списка.\n"
-           "(5) Вставка элемента в конец списка.\n"
-           "(6) Исключение элемента из начала списка.\n"
-           "(7) Исключение элемента из конца списка.\n"
-           "(8) Уничтожение списка с освобождением памяти.\n"
-           "(9) Включить новый элемент после i-го по номеру элемента.\n"
-           "(10) Включить новый элемент после элемента с заданным ключом.\n"
-           "(11) Включить новый элемент вместо элемента с соответствующим ключом.\n"
-           "ВНИМАНИЕ! При выходе из этого раздела список и все его данные удаляются\n";
+        std::cout << "(1) Создание пустого списка.\n"
+            "(2) Подсчет количества элементов списка.\n"
+            "(3) Вывод на экран содержимого списка.\n"
+            "(4) Вставка элемента в начало списка.\n"
+            "(5) Вставка элемента в конец списка.\n"
+            "(6) Исключение элемента из начала списка.\n"
+            "(7) Исключение элемента из конца списка.\n"
+            "(8) Уничтожение списка с освобождением памяти.\n"
+            "(9) Включить новый элемент после i-го по номеру элемента.\n"
+            "(10) Включить новый элемент после элемента с заданным ключом\n"
+            "(11) Включить новый элемент вместо элемента с соответствующим ключом.\n"
+            "ВНИМАНИЕ! При выходе из этого раздела список и все его данные удаляются\n";
     }
     delete_all_node(&head);
 }

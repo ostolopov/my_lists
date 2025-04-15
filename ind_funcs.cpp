@@ -1,6 +1,6 @@
 #include "ind_funcs.h"
 
-// Включить новый элемент после i-го по номеру элемента.
+// 1. Включить новый элемент после i-го по номеру элемента.
 template<>
 void include_after_the_ith<undir_lin_no_head>(undir_lin_no_head** head, int i) {
     if (i < 0 || *head == nullptr) return;
@@ -12,7 +12,7 @@ void include_after_the_ith<undir_lin_no_head>(undir_lin_no_head** head, int i) {
     }
     if (current == nullptr) return;
     int data, key;
-    cin >> data >> key;
+    std::cin >> data >> key;
     auto* node = new undir_lin_no_head;
     node->key = key;
     node->data = data;
@@ -32,7 +32,7 @@ void include_after_the_ith<undir_lin_with_head>(undir_lin_with_head** head, int 
     }
     if (current == *head) return;
     int data, key;
-    cin >> data >> key;
+    std::cin >> data >> key;
     auto* node = new undir_lin_with_head;
     node->key = key;
     node->data = data;
@@ -51,7 +51,7 @@ void include_after_the_ith<sym_lin_no_head>(sym_lin_no_head** head, int i) {
     }
     if (current == nullptr) return;
     int data, key;
-    cin >> data >> key;
+    std::cin >> data >> key;
     auto* node = new sym_lin_no_head;
     node->key = key;
     node->data = data;
@@ -73,7 +73,7 @@ void include_after_the_ith<sym_lin_with_head>(sym_lin_with_head** head, int i) {
     }
     if (current == *head) return;
     int data, key;
-    cin >> data >> key;
+    std::cin >> data >> key;
     auto* node = new sym_lin_with_head;
     node->key = key;
     node->data = data;
@@ -95,7 +95,7 @@ void include_after_the_ith<unidir_cyc_no_head>(unidir_cyc_no_head** head, int i)
     }
     if (current == *head) return;
     int data, key;
-    cin >> data >> key;
+    std::cin >> data >> key;
     auto* node = new unidir_cyc_no_head;
     node->key = key;
     node->data = data;
@@ -114,7 +114,7 @@ void include_after_the_ith<unidir_cyc_with_head>(unidir_cyc_with_head** head, in
     }
     if (current == *head) return;
     int data, key;
-    cin >> data >> key;
+    std::cin >> data >> key;
     auto* node = new unidir_cyc_with_head;
     node->key = key;
     node->data = data;
@@ -133,7 +133,7 @@ void include_after_the_ith<sym_cyc_no_head>(sym_cyc_no_head** head, int i) {
     }
     if (current == *head) return;
     int data, key;
-    cin >> data >> key;
+    std::cin >> data >> key;
     auto* node = new sym_cyc_no_head;
     node->key = key;
     node->data = data;
@@ -154,7 +154,7 @@ void include_after_the_ith<sym_cyc_with_head>(sym_cyc_with_head** head, int i) {
     }
     if (current == *head) return;
     int data, key;
-    cin >> data >> key;
+    std::cin >> data >> key;
     auto* node = new sym_cyc_with_head;
     node->key = key;
     node->data = data;
@@ -164,14 +164,14 @@ void include_after_the_ith<sym_cyc_with_head>(sym_cyc_with_head** head, int i) {
     current->next = node;
 }
 
-// Включить новый элемент после элемента с заданным ключом
+// 2. Включить новый элемент после элемента с заданным ключом
 template<>
 void include_after_the_key<undir_lin_no_head>(undir_lin_no_head** head, int key) {
     undir_lin_no_head* current = *head;
     int new_key, new_data;
     while (current != nullptr) {
         if (current->key == key) {
-            cin >> new_key >> new_data;
+            std::cin >> new_key >> new_data;
             auto* new_node = new undir_lin_no_head(new_key, new_data, current->next);
             current->next = new_node;
             return;
@@ -186,7 +186,7 @@ void include_after_the_key<undir_lin_with_head>(undir_lin_with_head** head, int 
     int new_key, new_data;
     while (current != nullptr) {
         if (current->key == key) {
-            cin >> new_key >> new_data;
+            std::cin >> new_key >> new_data;
             auto* new_node = new undir_lin_with_head(new_key, new_data, current->next);
             current->next = new_node;
             return;
@@ -201,7 +201,7 @@ void include_after_the_key<sym_lin_no_head>(sym_lin_no_head** head, int key) {
     int new_key, new_data;
     while (current != nullptr) {
         if (current->key == key) {
-            cin >> new_key >> new_data;
+            std::cin >> new_key >> new_data;
             auto* new_node = new sym_lin_no_head(new_key, new_data, current->next, current);
             if (current->next != nullptr) {
                 current->next->prev = new_node;
@@ -219,7 +219,7 @@ void include_after_the_key<sym_lin_with_head>(sym_lin_with_head** head, int key)
     int new_key, new_data;
     while (current != *head) {
         if (current->key == key) {
-            cin >> new_key >> new_data;
+            std::cin >> new_key >> new_data;
             auto* new_node = new sym_lin_with_head(new_key,new_data, current->next, current);
             current->next->prev = new_node;
             current->next = new_node;
@@ -238,7 +238,7 @@ void include_after_the_key<unidir_cyc_no_head>(unidir_cyc_no_head** head, int ke
     while (current != *head || flag) {
         flag = false;
         if (current->key == key) {
-            cin >> new_key >> new_data;
+            std::cin >> new_key >> new_data;
             auto* new_node = new unidir_cyc_no_head(new_key, new_data, current->next);
             current->next = new_node;
             return;
@@ -253,7 +253,7 @@ void include_after_the_key<unidir_cyc_with_head>(unidir_cyc_with_head** head, in
     int new_key, new_data;
     while (current != *head) {
         if (current->key == key) {
-            cin >> new_key >> new_data;
+            std::cin >> new_key >> new_data;
             auto* new_node = new unidir_cyc_with_head(new_key, new_data, current->next);
             current->next = new_node;
             return;
@@ -271,7 +271,7 @@ void include_after_the_key<sym_cyc_no_head>(sym_cyc_no_head** head, int key) {
     while (current != *head || flag) {
         flag = false;
         if (current->key == key) {
-            cin >> new_key >> new_data;
+            std::cin >> new_key >> new_data;
             auto* new_node = new sym_cyc_no_head(new_key, new_data, current->next, current);
             current->next->prev = new_node;
             current->next = new_node;
@@ -287,7 +287,7 @@ void include_after_the_key<sym_cyc_with_head>(sym_cyc_with_head** head, int key)
     int new_key, new_data;
     while (current != *head) {
         if (current->key == key) {
-            cin >> new_key >> new_data;
+            std::cin >> new_key >> new_data;
             auto* new_node = new sym_cyc_with_head(new_key,new_data, current->next,current);
             current->next->prev = new_node;
             current->next = new_node;
@@ -297,70 +297,15 @@ void include_after_the_key<sym_cyc_with_head>(sym_cyc_with_head** head, int key)
     }
 }
 
-// // Включить новый элемент перед i-ым по номеру элементом
-// template<>
-// void include_before_the_ith <undir_lin_no_head> (undir_lin_no_head **head, int i);
-// template<>
-// void include_before_the_ith <undir_lin_with_head> (undir_lin_with_head **head, int i);
-// template<>
-// void include_before_the_ith <sym_lin_no_head> (sym_lin_no_head **head, int i);
-// template<>
-// void include_before_the_ith <sym_lin_with_head> (sym_lin_with_head **head, int i);
-// template<>
-// void include_before_the_ith <unidir_cyc_no_head> (unidir_cyc_no_head **head, int i);
-// template<>
-// void include_before_the_ith <unidir_cyc_with_head> (unidir_cyc_with_head **head, int i);
-// template<>
-// void include_before_the_ith <sym_cyc_no_head> (sym_cyc_no_head **head, int i);
-// template<>
-// void include_before_the_ith <sym_cyc_with_head> (sym_cyc_with_head **head, int i);
-//
-// // Включить новый элемент перед элементом с заданным ключом.
-// template<>
-// void include_before_the_key <undir_lin_no_head> (undir_lin_no_head **head, int key);
-// template<>
-// void include_before_the_key <undir_lin_with_head> (undir_lin_with_head **head, int key);
-// template<>
-// void include_before_the_key <sym_lin_no_head> (sym_lin_no_head **head, int key);
-// template<>
-// void include_before_the_key <sym_lin_with_head> (sym_lin_with_head **head, int key);
-// template<>
-// void include_before_the_key <unidir_cyc_no_head> (unidir_cyc_no_head **head, int key);
-// template<>
-// void include_before_the_key <unidir_cyc_with_head> (unidir_cyc_with_head **head, int key);
-// template<>
-// void include_before_the_key <sym_cyc_no_head> (sym_cyc_no_head **head, int key);
-// template<>
-// void include_before_the_key <sym_cyc_with_head> (sym_cyc_with_head **head, int key);
-//
-// // Включить новый элемент вместо i-го по номеру элемента.
-// template<>
-// void include_instead_the_ith <undir_lin_no_head> (undir_lin_no_head **head, int i);
-// template<>
-// void include_instead_the_ith <undir_lin_with_head> (undir_lin_with_head **head, int i);
-// template<>
-// void include_instead_the_ith <sym_lin_no_head> (sym_lin_no_head **head, int i);
-// template<>
-// void include_instead_the_ith <sym_lin_with_head> (sym_lin_with_head **head, int i);
-// template<>
-// void include_instead_the_ith <unidir_cyc_no_head> (unidir_cyc_no_head **head, int i);
-// template<>
-// void include_instead_the_ith <unidir_cyc_with_head> (unidir_cyc_with_head **head, int i);
-// template<>
-// void include_instead_the_ith <sym_cyc_no_head> (sym_cyc_no_head **head, int i);
-// template<>
-// void include_instead_the_ith <sym_cyc_with_head> (sym_cyc_with_head **head, int i);
-
-
-// Включить новый элемент вместо элемента с соответствующим ключом.
+// 6. Включить новый элемент вместо элемента с соответствующим ключом.
 template<>
 void include_instead_the_key<undir_lin_no_head>(undir_lin_no_head **head, int key) {
     undir_lin_no_head *current = *head, *prev = nullptr;
     int new_key, new_data;
     while (current != nullptr) {
         if (current->key == key) {
-            cin >> new_key;
-            cin >> new_data;
+            std::cin >> new_key;
+            std::cin >> new_data;
             auto *new_node = new undir_lin_no_head{new_key, new_data, current->next};
             if (prev == nullptr)
                 *head = new_node;
@@ -380,8 +325,8 @@ void include_instead_the_key<undir_lin_with_head>(undir_lin_with_head **head, in
     int new_key, new_data;
     while (current != nullptr) {
         if (current->key == key) {
-            cin >> new_key;
-            cin >> new_data;
+            std::cin >> new_key;
+            std::cin >> new_data;
             auto *new_node = new undir_lin_with_head{new_key, new_data, current->next};
             prev->next = new_node;
             delete current;
@@ -398,8 +343,8 @@ void include_instead_the_key<sym_lin_no_head>(sym_lin_no_head **head, int key) {
     int new_key, new_data;
     while (current != nullptr) {
         if (current->key == key) {
-            cin >> new_key;
-            cin >> new_data;
+            std::cin >> new_key;
+            std::cin >> new_data;
             auto *new_node = new sym_lin_no_head(new_key, new_data, current->next, current->prev);
             if (current->prev)
                 current->prev->next = new_node;
@@ -420,8 +365,8 @@ void include_instead_the_key<sym_lin_with_head>(sym_lin_with_head **head, int ke
     int new_key, new_data;
     while (current != *head) {
         if (current->key == key) {
-            cin >> new_key;
-            cin >> new_data;
+            std::cin >> new_key;
+            std::cin >> new_data;
             auto *new_node = new sym_lin_with_head(new_key, new_data, current->next, current->prev);
             current->prev->next = new_node;
             current->next->prev = new_node;
@@ -441,7 +386,7 @@ void include_instead_the_key<unidir_cyc_no_head>(unidir_cyc_no_head **head, int 
     while (current != *head || flag) {
         flag = false;
         if (current->key == key) {
-            cin >> new_key >> new_data;
+            std::cin >> new_key >> new_data;
             auto *new_node = new unidir_cyc_no_head{new_key, new_data, current->next};
             if (prev == nullptr) {
                 new_node->next = current->next;
@@ -467,7 +412,7 @@ void include_instead_the_key<unidir_cyc_with_head>(unidir_cyc_with_head **head, 
     int new_key, new_data;
     while (current != *head) {
         if (current->key == key) {
-            cin >> new_key >> new_data;
+            std::cin >> new_key >> new_data;
             auto *new_node = new unidir_cyc_with_head{new_key, new_data, current->next};
             prev->next = new_node;
             delete current;
@@ -487,7 +432,7 @@ void include_instead_the_key<sym_cyc_no_head>(sym_cyc_no_head **head, int key) {
     while (current != *head || flag) {
         flag = false;
         if (current->key == key) {
-            cin >> new_key >> new_data;
+            std::cin >> new_key >> new_data;
             auto *new_node = new sym_cyc_no_head{new_key, new_data, current->next, current->prev};
             current->prev->next = new_node;
             current->next->prev = new_node;
@@ -505,7 +450,7 @@ void include_instead_the_key<sym_cyc_with_head>(sym_cyc_with_head **head, int ke
     int new_key, new_data;
     while (current != *head) {
         if (current->key == key) {
-            cin >> new_key >> new_data;
+            std::cin >> new_key >> new_data;
             auto *new_node = new sym_cyc_with_head{new_key, new_data, current->next, current->prev};
             current->prev->next = new_node;
             current->next->prev = new_node;
@@ -515,4 +460,3 @@ void include_instead_the_key<sym_cyc_with_head>(sym_cyc_with_head **head, int ke
         current = current->next;
     }
 }
-
