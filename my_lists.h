@@ -53,7 +53,7 @@ struct unidir_cyc_with_head {
 
 // 7.  ________________________
 //    |                        |
-//    v                        |
+//    |                        v
 //    [Data1] <-> [Data2] <-> [Data3]
 //    ^                        |
 //    |________________________|
@@ -66,7 +66,7 @@ struct sym_cyc_no_head {
 
 // 8. _______________________________
 //   |                               |
-//   v                               |
+//   |                               v
 //   [Dummy] <-> [Data1] <-> [Data2] <-> [Data3]
 //   ^                               |
 //   |_______________________________|
@@ -76,18 +76,6 @@ struct sym_cyc_with_head {
     sym_cyc_with_head *next;
     sym_cyc_with_head *prev;
 };
-
-
-//чо в них делать то епто
-// undir_lin_no_head *create_undir_lin_no_head ();
-// undir_lin_with_head *create_undir_lin_with_head ();
-// sym_lin_no_head *create_sym_lin_no_head ();
-// sym_lin_with_head *create_sym_lin_with_head ();
-// unidir_cyc_no_head *create_unidir_cyc_no_head ();
-// unidir_cyc_with_head *create_unidir_cyc_with_head ();
-// sym_cyc_no_head *create_sym_cyc_no_head ();
-// sym_cyc_with_head *create_sym_cyc_with_head ();
-
 template <typename T>
 T *create_list ();
 
